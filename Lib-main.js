@@ -1,13 +1,13 @@
 const fs = require('fs'), 
-			path = require('path'),
-			util = require('util')
+      path = require('path'),
+      util = require('util')
 
 
 module.exports = {
-	fileRead : fileRead,  //reads file in utf8, throws err
+	fileRead : fileRead,            //reads file in utf8, throws err
 	fs : fs,
 	path: path,
-	print : print,  //console.log is too long to type
+	print : print,                  //console.log is too long to type
 	requireGlobal : requireGlobal,  //adds everything of exported to global scope
 }
 
@@ -22,12 +22,6 @@ function fileRead(fileName, callback) {
 }
 
 
-/*function print() {
-	for (let i=0; i < arguments.length; i++) {
-		process.stdout.write(String(arguments[i]))
-	}
-	console.log()
-}*/
 function print() {
 	if (!process.stdout || !util.isFunction(process.stdout.write)) 
 		throw new TypeError('Console expects a writable stream instance')
